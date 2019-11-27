@@ -37,8 +37,18 @@ pub fn join_name(param: &JsValue) -> String {
 }
 
 #[wasm_bindgen]
-pub fn add(a: u64, b: u64) -> u64 {
+pub fn add(a: u32, b: u32) -> u32 {
     a + b
+}
+
+#[wasm_bindgen]
+pub fn not(b: bool) -> bool {
+    !b
+}
+
+#[wasm_bindgen]
+pub fn reverse(word: String) -> String {
+    word.chars().rev().collect::<String>()
 }
 
 #[cfg(test)]
