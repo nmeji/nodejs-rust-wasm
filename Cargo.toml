@@ -1,0 +1,19 @@
+[package]
+name = "stash"
+version = "0.1.0"
+description = "Simple experimentation with NodeJS, Web Assembly and Rust"
+authors = ["Niko Mejia <mejia.niko@gmail.com>"]
+edition = "2018"
+repository = "https://github.com/nmeji/nodejs-rust-wasm"
+license = "MIT"
+
+[dependencies]
+serde = "^1.0.102"
+serde_derive = "^1.0.102"
+
+[dependencies.wasm-bindgen]
+version = "^0.2.54"
+features = ["serde-serialize"]
+
+[lib]
+crate-type = ["cdylib"]

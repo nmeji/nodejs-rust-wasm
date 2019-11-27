@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  cargo:
+    image: rust:1.39.0-slim-stretch
+    environment:
+      - USER=${CURRENT_UID}
+    volumes:
+      - ${PWD}:/opt/app
+      - ${PWD}/.cargo:/usr/local/cargo
+      - ${PWD}/.rustup:/usr/local/rustup
+    working_dir: /opt/app
+    entrypoint: ["cargo"]
+    command: ["--help"]
+
+  node:
+    image: node:10.17-stretch
+    environment:
+      - CARGO_HOME=/opt/app/.cargo
+      - RUSTUP_HOME=/opt/app/.rustup
+    volumes:
+      - ${PWD}:/opt/app
+    working_dir: /opt/app
